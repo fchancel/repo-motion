@@ -10,6 +10,12 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
+
+// Optional settings, in a .env file at the root of this repository (see .env.example).
+// A variable already set in the shell wins over the file.
+const envFile = join(root, '.env')
+if (existsSync(envFile)) process.loadEnvFile(envFile)
+
 const server = join(root, 'apps', 'web', '.output', 'server', 'index.mjs')
 const port = process.env.PORT ?? '4477'
 const url = `http://localhost:${port}`

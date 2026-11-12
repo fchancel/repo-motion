@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Primary adapter: Nuxt UI + local HTTP API. Thin handlers that call use cases.",
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv ../../.env",
     "build": "nuxt build",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",

@@ -95,7 +95,7 @@ MP4 vertical 1080 × 1920, zones sûres respectées, son inclus, texte et hashta
 
 ### 1. Ajoutez un dossier
 
-Lancez repo-motion depuis votre projet : il le propose tout de suite. Ou tapez n'importe quel chemin, il complète pendant la frappe.
+Tapez le chemin de votre application : repo-motion suggère les dossiers pendant la frappe. Lancé depuis votre projet, il le propose même tout seul.
 
 <img src="docs/images/01-projets.png" alt="L'écran d'accueil de repo-motion avec deux projets, WikiGéo et repo-motion, chacun avec sa vidéo prête" />
 
@@ -159,26 +159,56 @@ cd repo-motion
 ```
 
 ```bash
-corepack enable && pnpm install && pnpm build
+corepack enable && pnpm install
 ```
 
 ### Lancer
 
-Placez-vous dans le dossier de l'application à mettre en vidéo, puis :
+**Le plus simple :** depuis le dossier de repo-motion,
+
+```bash
+pnpm dev
+```
+
+Ouvrez **http://localhost:3000**, collez le chemin de votre application (par exemple `~/Projects/mon-app`), puis cliquez sur **Ajouter le projet**. C'est tout.
+
+<details>
+<summary><b>Autre façon : lancer repo-motion depuis le dossier de votre application</b></summary>
+<br/>
+
+Construisez repo-motion une fois :
+
+```bash
+pnpm build
+```
+
+Puis, depuis le dossier de l'application à mettre en vidéo :
 
 ```bash
 node ~/chemin/vers/repo-motion/bin/repo-motion.mjs
 ```
 
-Le navigateur s'ouvre sur **http://localhost:4477** avec votre projet déjà proposé. Cliquez sur **Ajouter un projet**, et c'est parti.
+Le navigateur s'ouvre tout seul sur **http://localhost:4477**, avec ce dossier déjà proposé comme premier projet. C'est la version optimisée, plus rapide à démarrer : pensez à relancer `pnpm build` après chaque `git pull`.
 
-> 💡 **Astuce :** créez un alias pour lancer repo-motion de n'importe où.
->
-> ```bash
-> echo 'alias repo-motion="node ~/chemin/vers/repo-motion/bin/repo-motion.mjs"' >> ~/.zshrc
-> ```
+Pour l'avoir partout, créez un alias :
+
+```bash
+echo 'alias repo-motion="node ~/chemin/vers/repo-motion/bin/repo-motion.mjs"' >> ~/.zshrc
+```
+
+</details>
 
 > ℹ️ Le tout premier rendu télécharge une seule fois le navigateur sans interface utilisé pour dessiner les vidéos (environ 90 Mo).
+
+### Configurer (facultatif)
+
+repo-motion fonctionne sans aucune configuration. Pour changer le modèle, le dossier de données ou les durées maximales, copiez le modèle de configuration à la racine du dépôt :
+
+```bash
+cp .env.example .env
+```
+
+Décommentez ensuite les lignes voulues. Le fichier est lu par les deux façons de lancer. Toutes les options sont décrites dans [.env.example](.env.example).
 
 ### Combien de temps ?
 
@@ -198,7 +228,7 @@ Deux vidéos se produisent en même temps, les autres attendent leur tour. Vous 
 
 repo-motion a été conçu pour que vous puissiez le lancer sur du code privé sans y réfléchir à deux fois.
 
-- **Aucun serveur repo-motion.** Tout tourne sur votre ordinateur. Seul votre Claude Code parle à Anthropic, exactement comme quand vous l'utilisez au quotidien.
+- **Aucun serveur repo-motion.** Tout tourne sur votre ordinateur. Votre code n'est lu que par votre Claude Code, qui parle à Anthropic exactement comme quand vous l'utilisez au quotidien. Seules les polices de l'interface sont chargées depuis Google Fonts.
 - **Aucun identifiant manipulé.** repo-motion lance le Claude Code que vous avez installé, avec votre connexion. Il ne voit ni mot de passe, ni clé.
 - **Lecture seule pendant l'analyse.** Claude ne peut que lire votre dossier : ni écrire, ni exécuter, ni télécharger. Les hooks, réglages et serveurs MCP du projet analysé ne sont pas chargés.
 - **Réalisation cloisonnée.** Quand Claude réalise une vidéo, il travaille dans un dossier dédié, sans réseau, et ne peut lancer que les deux commandes qui dessinent ses images.
@@ -263,7 +293,7 @@ Non, volontairement. Tout ce qu'on voit est dessiné par le code de l'animation 
 <summary><b>Puis-je le configurer ?</b></summary>
 <br/>
 
-Rien n'est obligatoire. Les variables de [.env.example](.env.example) permettent de changer le dossier de données (par défaut `~/.repo-motion`), le chemin de `claude`, le modèle utilisé et les durées maximales de chaque étape.
+Rien n'est obligatoire. Copiez `.env.example` en `.env` à la racine du dépôt pour changer le dossier de données (par défaut `~/.repo-motion`), le chemin de `claude`, le modèle utilisé, les durées maximales de chaque étape ou le port. Une variable définie dans votre terminal l'emporte sur le fichier.
 
 </details>
 
