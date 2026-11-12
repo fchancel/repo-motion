@@ -1,0 +1,32 @@
+{
+  "name": "repo-motion",
+  "private": true,
+  "license": "PolyForm-Shield-1.0.0",
+  "description": "Turns a codebase into short-form videos, on your machine, with your own Claude Code.",
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "repo-motion": "bin/repo-motion.mjs"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @repo-motion/web dev",
+    "build": "pnpm --filter @repo-motion/web build",
+    "start": "node bin/repo-motion.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "check": "pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "@types/node": "^24.19.2",
+    "eslint": "^10.14.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  }
+}

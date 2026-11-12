@@ -1,0 +1,19 @@
+node_modules
+.nuxt
+.output
+.data
+dist
+coverage
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Local snapshots of earlier versions of the project
+.snapshots
+
+# Bundled video compositions
+packages/video/.cache
+
+# Videos rendered while trying the application
+exemples/

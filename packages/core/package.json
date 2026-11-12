@@ -1,0 +1,14 @@
+{
+  "name": "@repo-motion/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The hexagon: domain model, ports and use cases. No framework, no SDK, no I/O.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

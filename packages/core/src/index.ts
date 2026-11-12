@@ -1,0 +1,41 @@
+// Shared kernel
+export * from './shared/result'
+export * from './shared/errors'
+export type { Brand } from './shared/brand'
+
+// Domain
+export * from './domain/project/project'
+export * from './domain/project/project-folder'
+export * from './domain/analysis/product-brief'
+export * from './domain/analysis/hex-color'
+export * from './domain/persona/persona'
+export * from './domain/video/storyboard'
+export * from './domain/video/direction'
+export * from './domain/video/piece'
+export * from './domain/video/script'
+
+// Ports
+export type * from './application/ports/repositories'
+export type * from './application/ports/claude-code'
+export type * from './application/ports/project-folders'
+export type * from './application/ports/background-jobs'
+export type * from './application/ports/video'
+export type * from './application/ports/system'
+
+// Use cases
+export * from './application/errors'
+export * from './application/claude-code-readiness'
+export * from './application/use-cases/add-project'
+export * from './application/use-cases/remove-project'
+export * from './application/use-cases/request-analysis'
+export * from './application/use-cases/run-analysis'
+export * from './application/use-cases/request-personas'
+export * from './application/use-cases/write-personas'
+export * from './application/use-cases/request-video'
+export * from './application/use-cases/choose-script'
+export * from './application/use-cases/produce-video'
+export * from './application/use-cases/set-up-videos'
+export * from './application/use-cases/choose-style'
+export * from './application/use-cases/suggest-styles'
+export * from './application/use-cases/recover-interrupted-work'
+export * from './application/use-cases/queries'

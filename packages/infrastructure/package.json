@@ -1,0 +1,17 @@
+{
+  "name": "@repo-motion/infrastructure",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Secondary adapters: the local Claude Code CLI, the file system, the in-process job queue.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@repo-motion/core": "workspace:*",
+    "zod": "^4.6.7"
+  }
+}

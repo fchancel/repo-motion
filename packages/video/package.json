@@ -1,0 +1,29 @@
+{
+  "name": "@repo-motion/video",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The videos themselves: Remotion compositions (React) and the script that renders them to MP4.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fontsource-variable/bricolage-grotesque": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@remotion/bundler": "4.0.542",
+    "@remotion/cli": "4.0.542",
+    "@remotion/renderer": "4.0.542",
+    "@remotion/transitions": "4.0.542",
+    "lucide": "^0.469.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0"
+  }
+}
